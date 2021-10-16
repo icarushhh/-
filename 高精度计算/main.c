@@ -417,9 +417,9 @@ int main() {
     input(&r1);
     input(&r2);
     
-    //ten_to_k(r1, &r3);
-    //add(r1, r2, &r3);
-    //sub(r1, r2, &r3);
+    ten_to_k(r1, &r3);
+    add(r1, r2, &r3);
+    sub(r1, r2, &r3);
     //multiply(r1, r2, &r3);
     //fx(r1, &r3);
     
