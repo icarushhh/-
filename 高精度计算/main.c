@@ -421,7 +421,7 @@ int main() {
     //add(r1, r2, &r3);
     //sub(r1, r2, &r3);
     //multiply(r1, r2, &r3);
-    //fx(r1, &r3);
+    fx(r1, &r3);
     
     print(r3);
     
