@@ -65,3 +65,5 @@ if((stack_type##_stacktop_ptr - stack_type##_stackbase_ptr) >= stack_type##_stac
 #endif /* stack_h */
 //i am writing c using vim!
 //lalallallal
+//git is so cool!
+
