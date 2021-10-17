@@ -63,3 +63,4 @@ if((stack_type##_stacktop_ptr - stack_type##_stackbase_ptr) >= stack_type##_stac
 //遍历
 
 #endif /* stack_h */
+//i am writing c using vim!
