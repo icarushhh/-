@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A519B9FF271BE947003441D7 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 		A5AF5C61270C906000A86A73 /* 高精度计算 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "高精度计算"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AF5C64270C906000A86A73 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		A5D91564271AA03900BBA412 /* stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		A5AF5C63270C906000A86A73 /* 高精度计算 */ = {
 			isa = PBXGroup;
 			children = (
+				A519B9FF271BE947003441D7 /* data.txt */,
 				A5D91564271AA03900BBA412 /* stack.h */,
 				A5AF5C64270C906000A86A73 /* main.c */,
 			);
