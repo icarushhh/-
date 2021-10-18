@@ -73,6 +73,43 @@ void input(R_p p){
     return;
 }//输入一个十进制实数
 
+void finput(R_p p){
+    int int_stacksize = 0;
+    int* int_stacktop_ptr;
+    int* int_stackbase_ptr;
+    stack_initialize(int);
+    //initialize a stack
+    
+    int i = 0, j = 10;
+    char c;
+    int e = 0;
+    
+    while ((c = getchar()) != '.' && c != '\n') {
+        if (c == '-') {
+            p->sign = -1;
+            continue;
+        }                       //处理符号
+        push(int, c-48);
+    }
+    while (!stack_is_empty(int)) {
+        pop(int, e);
+        p->int_part[j--] = e;
+    }
+    
+    if (c == '.') {
+        while ((c = getchar()) != '\n') {
+            p->frac_part[i++] = c-48;
+        }
+        p->length_of_frac = i;
+    }
+    else return;
+    
+    return;
+    
+    
+    
+}
+
 void print(R p){
     int i = 0;
     
@@ -360,45 +397,13 @@ void fx(R r1, R_p r2){
         initialize(consts + i);
     }
     
-    freopen("/Users/icarus/Library/Mobile Documents/com~apple~CloudDocs/2021秋季学期/数据结构/上机题2/High-precision-real-number-operation/高精度计算/data.txt", "r", stdin);
-    int int_stacksize = 0;
-    int* int_stacktop_ptr;
-    int* int_stackbase_ptr;
-    stack_initialize(int);
-    //initialize a stack
+    freopen("/Users/icarus/Library/Mobile Documents/com~apple~CloudDocs/2021秋季学期/数据结构/上机题2/High-precision-real-number-operation/高精度计算/data的副本.txt", "r", stdin);
     
-    int s = 0, j = 10;
-    char c;
-    int e = 0;
-
-    while ((c = getchar()) != '.' && c != '\n') {
-        if (c == '-') {
-            (consts+0)->sign = -1;
-            continue;
-        }                       //处理符号
-        push(int, c-48);
-    }
-    while (!stack_is_empty(int)) {
-        pop(int, e);
-        (consts+0)->int_part[j--] = e;
-    }
-    
-    if (c == '.') {
-        while ((c = getchar()) != '\n') {
-            (consts+0)->frac_part[s++] = c-48;
-        }
-        (consts+0)->length_of_frac = s;
+    for (int i = 0 ; i < 5; i++) {
+        finput(consts + i);
     }
     
     fclose(stdin);  //important!!!!
-    
-    consts[1].int_part[10] = 3;
-    for (int m = 0; m < 10; m++) {
-        (consts+2)->frac_part[m] = 3;
-        consts[2].length_of_frac = 10;
-    }
-    consts[3].int_part[10] = 2;
-    consts[4].int_part[10] = 4;
     
     multiply(r1, r1, temp+0);
     multiply(temp[0], r1, temp+1);
@@ -459,7 +464,7 @@ int main() {
     //add(r1, r2, &r3);
     //sub(r1, r2, &r3);
     //multiply(r1, r2, &r3);
-    //fx(r1, &r3);
+    fx(r1, &r3);
     //fy(r1, &r3);
     
     print(r3);
