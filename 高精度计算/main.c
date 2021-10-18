@@ -146,6 +146,7 @@ void ten_to_k(R source, R_p target){
 
 }//将一个十进制实数转化成k进制(0<k<10)
 
+void sub(R source1, R source2, R_p target);
 void add(R source1, R source2, R_p target){
     if (source1.k != source2.k) {
         printf("两实数进制不同，无法执行运算\n");
@@ -155,7 +156,8 @@ void add(R source1, R source2, R_p target){
     //处理进制问题
     
     if (source1.sign != source2.sign) {
-        printf("两实数符号不同，请使用减法运算\n");
+        source2.sign *= -1;
+        sub(source1, source2, target);
         return;
     }
     target->sign = source1.sign;
@@ -180,7 +182,7 @@ void add(R source1, R source2, R_p target){
         carry = temp - temp % k;
     }
     return;
-}//同符号数相加。异号加法使用减法运算
+}
 
 int compare_abs(R r1, R r2){
     if (r1.k != r2.k) {
@@ -216,7 +218,8 @@ void sub(R source1, R source2, R_p target){
     int flag = compare_abs(source1, source2);
     
     if (source1.sign != source2.sign) {
-        printf("两实数符号不同，请使用加法运算\n");
+        source2.sign *= -1;
+        add(source1, source2, target);
         return;
     }
     
@@ -265,7 +268,7 @@ void sub(R source1, R source2, R_p target){
     }
     
     return;
-}//同符号数相减。异号相减使用加法运算
+}
 
 void multiply(R source1, R source2, R_p target){
     if (source1.k != source2.k) {
@@ -408,6 +411,38 @@ void fx(R r1, R_p r2){
     return;
 } //计算预设函数f（r1）
 
+void fy(R r1, R_p r2){
+    printf("输入五个参数，运算c1*x^c2-c3*x^2+4\n");
+    
+    R temp[5];
+    for (int i = 0; i < 5; i++) {
+        initialize(temp + i);
+    }
+    
+    R consts[5];
+    for (int i = 0; i < 5; i++) {
+        initialize(consts + i);
+    }
+    
+    for (int i = 0; i < 5; i++) {
+        printf("输入实数c%d\n", i+1);
+        input(consts+i);
+    }
+    
+    multiply(r1, r1, temp+0);
+    multiply(temp[0], r1, temp+1);
+    multiply(temp[1], consts[0], temp+2);
+    
+    multiply(temp[0], consts[2], temp+3);
+    
+    sub(temp[2], temp[3], temp+4);
+    
+    add(temp[4], consts[4], r2);
+
+    return;
+}
+
+
 int main() {
    
     R r1,r2,r3;
@@ -416,12 +451,14 @@ int main() {
     initialize(&r3);
     input(&r1);
     input(&r2);
+    //input(&r3);
     
     //ten_to_k(r1, &r3);
     //add(r1, r2, &r3);
     //sub(r1, r2, &r3);
     //multiply(r1, r2, &r3);
-    fx(r1, &r3);
+    //fx(r1, &r3);
+    //fy(r1, &r3);
     
     print(r3);
     
