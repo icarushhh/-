@@ -360,7 +360,7 @@ void fx(R r1, R_p r2){
         initialize(consts + i);
     }
     
-    freopen("/Users/icarus/Library/Mobile Documents/com~apple~CloudDocs/2021秋季学期/数据结构/上机题2/高精度计算/高精度计算/data.txt", "r", stdin);
+    freopen("/Users/icarus/Library/Mobile Documents/com~apple~CloudDocs/2021秋季学期/数据结构/上机题2/High-precision-real-number-operation/高精度计算/data.txt", "r", stdin);
     int int_stacksize = 0;
     int* int_stacktop_ptr;
     int* int_stackbase_ptr;
@@ -389,6 +389,8 @@ void fx(R r1, R_p r2){
         }
         (consts+0)->length_of_frac = s;
     }
+    
+    fclose(stdin);  //important!!!!
     
     consts[1].int_part[10] = 3;
     for (int m = 0; m < 10; m++) {
