@@ -440,7 +440,7 @@ void fy(R r1, R_p r2){
     add(temp[4], consts[4], r2);
 
     return;
-}
+}//输入参数计算f
 
 
 int main() {
